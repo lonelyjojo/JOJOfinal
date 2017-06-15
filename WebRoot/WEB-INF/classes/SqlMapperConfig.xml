@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 别名  以及MyBatis中的一些相关的设置需要在该文件中编写 -->
+	<typeAliases>
+		<!-- 扫描包，将该包下所有的类取上别名，别名就和类名相同 -->
+		<package name="com.jojofinal.po"/>
+	</typeAliases>
+</configuration>

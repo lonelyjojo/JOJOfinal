@@ -1,0 +1,11 @@
+@CHARSET "UTF-8";
+.hidecom{
+	display: none;
+}
+.showcom{
+	display: block;
+	width: 30%;
+}
+.appendmsg{
+	margin: 0 auto;
+}

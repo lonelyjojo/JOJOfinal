@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jojofinal.mapper.RestaurantMapper">
+	<insert id="addRes" parameterType="Restaurant" useGeneratedKeys="true" keyProperty="rid">
+		insert into t_restaurant (rname,rpassword) value (#{rname},#{rpassword})
+	</insert> 
+	
+	<update id="updateRes" parameterType="Restaurant" >
+	update t_restaurat set rname=#{rname},rpassword=#{rpassword} where rid=#{rid}
+	</update>
+	
+	<update id="updatepass" parameterType="Restaurant">
+	update t_restaurant set rpassword=#{rpassword} where rid=#{rid}
+	</update>
+	
+	<delete id="deleteRes" parameterType="int">
+	delete from t_restaurant where rid=#{rid}
+	</delete>
+	
+	<select id="findById" parameterType="int" resultType="Restaurant">
+	select * from t_restaurant where rid=#{rid}
+	</select>
+	
+	<select id="showAll"  resultType="Restaurant">
+		select * from t_restaurant
+	</select>
+	
+	<select id="isexist" parameterType="Restaurant"  resultType="Restaurant">
+		select * from t_restaurant where rname=#{rname} and rpassword=#{rpassword}
+	</select>
+	<select id="nameisexist" parameterType="String"  resultType="Restaurant">
+		select * from t_restaurant where rname=#{rname}
+	</select>
+</mapper>

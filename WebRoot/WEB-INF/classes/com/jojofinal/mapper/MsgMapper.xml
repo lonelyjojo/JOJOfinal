@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jojofinal.mapper.MsgMapper">
+	<insert id="addMsg" parameterType="Msg" useGeneratedKeys="true" keyProperty="mid">
+		insert into t_msg
+		(mmsg,uid,did) value (#{mmsg},#{uid},#{did})
+		<selectKey resultType="int" order="AFTER" keyProperty="mid">
+		select last_insert_id() as mid
+		</selectKey>
+	</insert>
+	<select id="findMsgByDish" parameterType="int" resultType="Msg">
+	select * from t_msg where did=#{did}
+	</select>
+	<delete id="deleteMsgById" parameterType="int">
+	delete from t_msg where mid=#{mid}
+	</delete>
+</mapper>
